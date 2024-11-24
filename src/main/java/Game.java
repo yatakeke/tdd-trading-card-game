@@ -13,4 +13,8 @@ public class Game {
     public String winner() {
         return null;
     }
+
+    public void switchActive() {
+        this.current = new Situation(current.opponent(), current.active());
+    }
 }

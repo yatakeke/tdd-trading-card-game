@@ -14,4 +14,15 @@ class GameTest {
 
         assertEquals(19, game.current().opponent().life());
     }
+
+    @Test
+    @DisplayName("activePlayerがターンを終了すると入れ替わる")
+    public void changeActivePlayer() {
+        var game = new Game();
+
+        game.current().attack(new Card(1));
+        game.switchActive();
+
+        assertEquals(19, game.current().active().life());
+    }
 }
