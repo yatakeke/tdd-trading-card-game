@@ -1,3 +1,4 @@
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -5,10 +6,16 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class GameTest {
 
+    private Game game;
+
+    @BeforeEach
+    void setUp() {
+        this.game = new Game();
+    }
+
     @Test
     @DisplayName("activePlayerは自分のターンに相手にダメージを与えられる")
     public void activePlayerCanAttack() {
-        var game = new Game();
 
         game.current().attack(new Card(1));
 
@@ -18,7 +25,6 @@ class GameTest {
     @Test
     @DisplayName("activePlayerがターンを終了すると入れ替わる")
     public void changeActivePlayer() {
-        var game = new Game();
 
         game.current().attack(new Card(1));
         game.switchActive();
@@ -28,7 +34,6 @@ class GameTest {
 
     @Test
     public void player1CanWin() {
-        var game = new Game();
 
         for (int i = 0; i < 19; i++) {
             game.current().attack(new Card(1));
