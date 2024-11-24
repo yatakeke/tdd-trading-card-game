@@ -25,4 +25,20 @@ class GameTest {
 
         assertEquals(19, game.current().active().life());
     }
+
+    @Test
+    public void player1CanWin() {
+        var game = new Game();
+
+        for (int i = 0; i < 19; i++) {
+            game.current().attack(new Card(1));
+            game.switchActive();
+            game.switchActive();
+        }
+
+        game.current().attack(new Card(1));
+
+        assertEquals(0, game.current().opponent().life());
+        assertEquals("Player 1", game.winner());
+    }
 }
