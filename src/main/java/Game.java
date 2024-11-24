@@ -15,6 +15,9 @@ public class Game {
     }
 
     public String winner() {
+        if (this.current.opponent().life() != 0) {
+            return "NO ONE";
+        }
         return current.active().name();
     }
 

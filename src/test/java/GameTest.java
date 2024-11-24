@@ -64,4 +64,10 @@ class GameTest {
         assertEquals(0, game.current().opponent().life());
         assertEquals("Player 2", game.winner());
     }
+
+    @Test
+    @DisplayName("相手のライフがゼロでない時にwinnerはいない")
+    public void noOneIsWinner() {
+        assertEquals("NO ONE", game.winner());
+    }
 }
