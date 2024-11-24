@@ -10,17 +10,6 @@ public class Game {
         return new Game();
     }
 
-    public Situation current() {
-        return current;
-    }
-
-    public String winner() {
-        if (this.current.opponent().life() != 0) {
-            return "NO ONE";
-        }
-        return current.active().name();
-    }
-
     public void switchTurn() {
         this.current = new Situation(current.opponent(), current.active());
     }
@@ -35,5 +24,12 @@ public class Game {
 
     public int yourLife() {
         return this.current.active().life();
+    }
+
+    public String winner() {
+        if (this.current.opponent().life() != 0) {
+            return "NO ONE";
+        }
+        return current.active().name();
     }
 }
