@@ -18,7 +18,7 @@ class GameTest {
     @DisplayName("activePlayerは自分のターンに相手にダメージを与えられる")
     public void activePlayerCanAttack() {
 
-        game.current().attack(new Card(1));
+        game.play(new Card(1));
 
         assertEquals(19, game.current().opponent().life());
     }
@@ -27,7 +27,7 @@ class GameTest {
     @DisplayName("activePlayerがターンを終了すると入れ替わる")
     public void changeActivePlayer() {
 
-        game.current().attack(new Card(1));
+        game.play(new Card(1));
         game.switchTurn();
 
         assertEquals(19, game.current().active().life());
@@ -39,13 +39,13 @@ class GameTest {
         public void player1CanWin() {
 
             for (int i = 0; i < 19; i++) {
-                game.current().attack(new Card(1));
+                game.play(new Card(1));
                 game.switchTurn();
-                // game.current().attack(new Card(1));
+                // game.play(new Card(1));
                 game.switchTurn();
             }
 
-            game.current().attack(new Card(1));
+            game.play(new Card(1));
 
             assertEquals(0, game.current().opponent().life());
             assertEquals("Player 1", game.winner());
@@ -56,15 +56,15 @@ class GameTest {
         public void player2CanWin() {
 
             for (int i = 0; i < 19; i++) {
-                // game.current().attack(new Card(1));
+                // game.play(new Card(1));
                 game.switchTurn();
-                game.current().attack(new Card(1));
+                game.play(new Card(1));
                 game.switchTurn();
             }
 
-            // game.current().attack(new Card(1));
+            // game.play(new Card(1));
             game.switchTurn();
-            game.current().attack(new Card(1));
+            game.play(new Card(1));
 
             assertEquals(0, game.current().opponent().life());
             assertEquals("Player 2", game.winner());

@@ -24,4 +24,8 @@ public class Game {
     public void switchTurn() {
         this.current = new Situation(current.opponent(), current.active());
     }
+
+    public void play(Card by) {
+        this.current.attack(by);
+    }
 }
