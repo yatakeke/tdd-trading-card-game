@@ -6,10 +6,10 @@ import static org.junit.jupiter.api.Assertions.*;
 class PlayerTest {
 
     @Test
-    @DisplayName("1のコストを持つカードで相手を攻撃すると相手のライフが１減る")
+    @DisplayName("1のコストを持つカードで相手を攻撃すると相手のライフが2から1に減る")
     public void playerCanAttackBy1CostCard() {
-        var active = new Player();
-        var opponent = new Player();
+        var active = new Player(2);
+        var opponent = new Player(2);
 
         var card = new Card();
         active.attack(card, opponent);

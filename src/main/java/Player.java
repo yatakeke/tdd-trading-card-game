@@ -1,5 +1,8 @@
 public class Player {
-    public Player() {
+
+    private int life;
+    public Player(int life) {
+        this.life = life;
     }
 
     public int life() {
