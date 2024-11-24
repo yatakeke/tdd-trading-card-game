@@ -10,7 +10,7 @@ class PlayerTest {
     public void playerCanAttackBy1CostCard() {
         var active = new Player(2);
         var opponent = new Player(2);
-        var card = new Card();
+        var card = new Card(1);
 
         active.attack(card, opponent);
         assertEquals(1, opponent.life());

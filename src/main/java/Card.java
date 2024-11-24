@@ -1,2 +1,2 @@
-public record Card() {
+public record Card(int cost) {
 }
