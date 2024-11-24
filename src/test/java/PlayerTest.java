@@ -7,18 +7,21 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class PlayerTest {
 
-    @Test
-    @DisplayName("プレイヤーが初期化できる")
-    public void canInitialize() {
+    @Nested
+    class canInitialize {
+        @Test
+        @DisplayName("プレイヤーが初期化できる")
+        public void canInitializeByName() {
 
-        var player = PlayerFactory.init("Yata");
-        assertEquals(3, player.hands().size());
-        assertEquals(20, player.life());
-        assertEquals("Yata", player.name());
+            var player = PlayerFactory.init("Yata");
+            assertEquals(3, player.hands().size());
+            assertEquals(20, player.life());
+            assertEquals("Yata", player.name());
+        }
     }
 
     @Nested
-    class AttackTest {
+    class canAttack {
 
         private Player active;
         private Player opponent;

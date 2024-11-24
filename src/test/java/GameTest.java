@@ -1,5 +1,6 @@
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -31,46 +32,48 @@ class GameTest {
 
         assertEquals(19, game.current().active().life());
     }
+    @Nested
+    class canJudgeWinner {
+        @Test
+        @DisplayName("player1はコスト1のカードで20回攻撃すると勝利する")
+        public void player1CanWin() {
 
-    @Test
-    @DisplayName("player1はコスト1のカードで20回攻撃すると勝利する")
-    public void player1CanWin() {
+            for (int i = 0; i < 19; i++) {
+                game.current().attack(new Card(1));
+                game.switchActive();
+                // game.current().attack(new Card(1));
+                game.switchActive();
+            }
 
-        for (int i = 0; i < 19; i++) {
             game.current().attack(new Card(1));
-            game.switchActive();
-            // game.current().attack(new Card(1));
-            game.switchActive();
+
+            assertEquals(0, game.current().opponent().life());
+            assertEquals("Player 1", game.winner());
         }
 
-        game.current().attack(new Card(1));
+        @Test
+        @DisplayName("player2はコスト1のカードで20回攻撃すると勝利する")
+        public void player2CanWin() {
 
-        assertEquals(0, game.current().opponent().life());
-        assertEquals("Player 1", game.winner());
-    }
+            for (int i = 0; i < 19; i++) {
+                // game.current().attack(new Card(1));
+                game.switchActive();
+                game.current().attack(new Card(1));
+                game.switchActive();
+            }
 
-    @Test
-    @DisplayName("player2はコスト1のカードで20回攻撃すると勝利する")
-    public void player2CanWin() {
-
-        for (int i = 0; i < 19; i++) {
             // game.current().attack(new Card(1));
             game.switchActive();
             game.current().attack(new Card(1));
-            game.switchActive();
+
+            assertEquals(0, game.current().opponent().life());
+            assertEquals("Player 2", game.winner());
         }
 
-        // game.current().attack(new Card(1));
-        game.switchActive();
-        game.current().attack(new Card(1));
-
-        assertEquals(0, game.current().opponent().life());
-        assertEquals("Player 2", game.winner());
-    }
-
-    @Test
-    @DisplayName("相手のライフがゼロでない時にwinnerはいない")
-    public void noOneIsWinner() {
-        assertEquals("NO ONE", game.winner());
+        @Test
+        @DisplayName("相手のライフがゼロでない時にwinnerはいない")
+        public void noOneIsWinner() {
+            assertEquals("NO ONE", game.winner());
+        }
     }
 }
