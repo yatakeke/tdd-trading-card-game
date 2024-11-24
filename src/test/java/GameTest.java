@@ -39,6 +39,7 @@ class GameTest {
         for (int i = 0; i < 19; i++) {
             game.current().attack(new Card(1));
             game.switchActive();
+            // game.current().attack(new Card(1));
             game.switchActive();
         }
 
@@ -53,11 +54,13 @@ class GameTest {
     public void player2CanWin() {
 
         for (int i = 0; i < 19; i++) {
+            // game.current().attack(new Card(1));
             game.switchActive();
             game.current().attack(new Card(1));
             game.switchActive();
         }
 
+        // game.current().attack(new Card(1));
         game.switchActive();
         game.current().attack(new Card(1));
 
