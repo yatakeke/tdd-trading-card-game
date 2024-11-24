@@ -5,6 +5,10 @@ public class Player {
     private int life;
     private String name;
 
+    public static Player init(String name) {
+        return new Player(20, name);
+    }
+
     public static Player initPlayer1() {
         return new Player(20, "Player 1");
     }

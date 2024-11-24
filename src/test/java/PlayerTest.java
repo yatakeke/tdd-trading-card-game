@@ -11,9 +11,10 @@ class PlayerTest {
     @DisplayName("プレイヤーが初期化できる")
     public void canInitialize() {
 
-        var player = Player.initPlayer1();
+        var player = Player.init("Yata");
         assertEquals(3, player.hands().size());
         assertEquals(20, player.life());
+        assertEquals("Yata", player.name());
     }
 
     @Nested
@@ -25,7 +26,7 @@ class PlayerTest {
         @BeforeEach
         public void setUp() {
             active = Player.initPlayer1();
-            opponent = Player.initPlayer1();
+            opponent = Player.initPlayer2();
         }
 
         @Test
