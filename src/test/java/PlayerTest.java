@@ -17,6 +17,16 @@ class PlayerTest {
 
         active.attack(card, opponent);
         assertEquals(0, opponent.life());
+    }
 
+    @Test
+    @DisplayName("2のコストを持つカードで相手を攻撃すると相手のライフを2減らせる")
+    public void playerCanAttackBy2CostCard() {
+        var active = new Player(2);
+        var opponent = new Player(2);
+        var card = new Card(2);
+
+        active.attack(card, opponent);
+        assertEquals(0, opponent.life());
     }
 }
