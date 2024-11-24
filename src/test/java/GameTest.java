@@ -7,14 +7,12 @@ import static org.junit.jupiter.api.Assertions.*;
 class GameTest {
 
     @Test
-    @Disabled
-    @DisplayName("コスト1のカードでライフ1の相手プレイヤーを攻撃すると勝利する")
-    public void activePlayerCanWin() {
+    @DisplayName("activePlayerは自分のターンに相手にダメージを与えられる")
+    public void activePlayerCanAttack() {
         var game = new Game();
 
         game.current().attack(new Card(1));
 
-        assertEquals("Player 1", game.winner());
+        assertEquals(19, game.current().opponent().life());
     }
-
 }
