@@ -1,6 +1,13 @@
 public class Game {
+
+    private Situation current;
+
+    public Game() {
+        this.current = new Situation(Player.init(), Player.init());
+    }
+
     public Situation current() {
-        return null;
+        return current;
     }
 
     public String winner() {
