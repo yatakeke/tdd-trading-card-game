@@ -16,7 +16,11 @@ public class Player {
     }
 
     public List<Card> hands() {
-        return null;
+        return List.of(
+                new Card(0),
+                new Card(1),
+                new Card(2)
+                );
     }
 
     public void attack(Card by, Player opponent) {
