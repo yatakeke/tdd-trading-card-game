@@ -3,7 +3,7 @@ import java.util.List;
 public class Player {
 
     private int life;
-    private String name;
+    private final String name;
 
     public Player(int life, String name) {
         this.life = life;
@@ -19,6 +19,7 @@ public class Player {
     }
 
     public List<Card> hands() {
+        // FIXME: fake it で実装している
         return List.of(
                 new Card(0),
                 new Card(1),
