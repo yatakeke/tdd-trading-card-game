@@ -7,6 +7,16 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class PlayerTest {
 
+    @Test
+    @DisplayName("プレイヤーが初期化できる")
+    public void canInitialize() {
+
+        var player = Player.init();
+        assertEquals(3, player.hands().size());
+        // デッキは17枚
+        // ライフは20
+    }
+
     @Nested
     class AttackTest {
 
