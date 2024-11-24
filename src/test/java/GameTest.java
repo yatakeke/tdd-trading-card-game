@@ -20,7 +20,7 @@ class GameTest {
 
         game.play(new Card(1));
 
-        assertEquals(19, game.current().opponent().life());
+        assertEquals(19, game.opponentLife());
     }
 
     @Test
@@ -30,7 +30,7 @@ class GameTest {
         game.play(new Card(1));
         game.switchTurn();
 
-        assertEquals(19, game.current().active().life());
+        assertEquals(19, game.yourLife());
     }
     @Nested
     class canJudgeWinner {
@@ -47,7 +47,7 @@ class GameTest {
 
             game.play(new Card(1));
 
-            assertEquals(0, game.current().opponent().life());
+            assertEquals(0, game.opponentLife());
             assertEquals("Player 1", game.winner());
         }
 
@@ -66,7 +66,7 @@ class GameTest {
             game.switchTurn();
             game.play(new Card(1));
 
-            assertEquals(0, game.current().opponent().life());
+            assertEquals(0, game.opponentLife());
             assertEquals("Player 2", game.winner());
         }
 

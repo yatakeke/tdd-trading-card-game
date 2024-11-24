@@ -28,4 +28,12 @@ public class Game {
     public void play(Card by) {
         this.current.attack(by);
     }
+
+    public int opponentLife() {
+        return this.current.opponent().life();
+    }
+
+    public int yourLife() {
+        return this.current.active().life();
+    }
 }
