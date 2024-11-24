@@ -11,7 +11,7 @@ class PlayerTest {
     @DisplayName("プレイヤーが初期化できる")
     public void canInitialize() {
 
-        var player = Player.init();
+        var player = Player.initPlayer1();
         assertEquals(3, player.hands().size());
         assertEquals(20, player.life());
     }
@@ -24,8 +24,8 @@ class PlayerTest {
 
         @BeforeEach
         public void setUp() {
-            active = Player.init();
-            opponent = Player.init();
+            active = Player.initPlayer1();
+            opponent = Player.initPlayer1();
         }
 
         @Test

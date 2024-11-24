@@ -3,7 +3,7 @@ public class Game {
     private Situation current;
 
     public Game() {
-        this.current = new Situation(Player.init(), Player.init());
+        this.current = new Situation(Player.initPlayer1(), Player.initPlayer2());
     }
 
     public static Game init() {
@@ -15,7 +15,7 @@ public class Game {
     }
 
     public String winner() {
-        return "Player 1";
+        return current.active().name();
     }
 
     public void switchActive() {
