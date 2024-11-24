@@ -21,7 +21,7 @@ public class Game {
         return current.active().name();
     }
 
-    public void switchActive() {
+    public void switchTurn() {
         this.current = new Situation(current.opponent(), current.active());
     }
 }

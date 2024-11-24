@@ -28,7 +28,7 @@ class GameTest {
     public void changeActivePlayer() {
 
         game.current().attack(new Card(1));
-        game.switchActive();
+        game.switchTurn();
 
         assertEquals(19, game.current().active().life());
     }
@@ -40,9 +40,9 @@ class GameTest {
 
             for (int i = 0; i < 19; i++) {
                 game.current().attack(new Card(1));
-                game.switchActive();
+                game.switchTurn();
                 // game.current().attack(new Card(1));
-                game.switchActive();
+                game.switchTurn();
             }
 
             game.current().attack(new Card(1));
@@ -57,13 +57,13 @@ class GameTest {
 
             for (int i = 0; i < 19; i++) {
                 // game.current().attack(new Card(1));
-                game.switchActive();
+                game.switchTurn();
                 game.current().attack(new Card(1));
-                game.switchActive();
+                game.switchTurn();
             }
 
             // game.current().attack(new Card(1));
-            game.switchActive();
+            game.switchTurn();
             game.current().attack(new Card(1));
 
             assertEquals(0, game.current().opponent().life());
