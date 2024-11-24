@@ -6,9 +6,14 @@ public class Player {
     }
 
     public int life() {
-        return 1;
+        return life;
     }
 
     public void attack(Card by, Player opponent) {
+        opponent.damage(by.cost());
+    }
+
+    public void damage(int cost) {
+        this.life -= cost;
     }
 }
