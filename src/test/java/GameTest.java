@@ -47,4 +47,21 @@ class GameTest {
         assertEquals(0, game.current().opponent().life());
         assertEquals("Player 1", game.winner());
     }
+
+    @Test
+    @DisplayName("player2はコスト1のカードで20回攻撃すると勝利する")
+    public void player2CanWin() {
+
+        for (int i = 0; i < 19; i++) {
+            game.switchActive();
+            game.current().attack(new Card(1));
+            game.switchActive();
+        }
+
+        game.switchActive();
+        game.current().attack(new Card(1));
+
+        assertEquals(0, game.current().opponent().life());
+        assertEquals("Player 2", game.winner());
+    }
 }
