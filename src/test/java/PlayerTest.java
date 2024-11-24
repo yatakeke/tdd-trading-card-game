@@ -13,8 +13,7 @@ class PlayerTest {
 
         var player = Player.init();
         assertEquals(3, player.hands().size());
-        // デッキは17枚
-        // ライフは20
+        assertEquals(20, player.life());
     }
 
     @Nested
