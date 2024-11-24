@@ -6,6 +6,10 @@ public class Game {
         this.current = new Situation(Player.init(), Player.init());
     }
 
+    public static Game init() {
+        return new Game();
+    }
+
     public Situation current() {
         return current;
     }

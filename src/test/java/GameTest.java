@@ -10,7 +10,7 @@ class GameTest {
 
     @BeforeEach
     void setUp() {
-        this.game = new Game();
+        this.game = Game.init();
     }
 
     @Test
