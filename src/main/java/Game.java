@@ -11,7 +11,7 @@ public class Game {
     }
 
     public String winner() {
-        return null;
+        return "Player 1";
     }
 
     public void switchActive() {
