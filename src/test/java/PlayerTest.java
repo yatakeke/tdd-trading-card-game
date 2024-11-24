@@ -24,8 +24,8 @@ class PlayerTest {
 
         @BeforeEach
         public void setUp() {
-            active = new Player(2);
-            opponent = new Player(2);
+            active = Player.init();
+            opponent = Player.init();
         }
 
         @Test
@@ -34,10 +34,10 @@ class PlayerTest {
             var card = new Card(1);
 
             active.attack(card, opponent);
-            assertEquals(1, opponent.life());
+            assertEquals(19, opponent.life());
 
             active.attack(card, opponent);
-            assertEquals(0, opponent.life());
+            assertEquals(18, opponent.life());
         }
 
         @Test
@@ -46,7 +46,7 @@ class PlayerTest {
             var card = new Card(2);
 
             active.attack(card, opponent);
-            assertEquals(0, opponent.life());
+            assertEquals(18, opponent.life());
         }
     }
 }
