@@ -33,7 +33,7 @@ class GameTest {
     }
 
     @Test
-    @DisplayName("コスト1のカードでライフの相手プレイヤーを20回攻撃すると勝利する")
+    @DisplayName("player1はコスト1のカードで20回攻撃すると勝利する")
     public void player1CanWin() {
 
         for (int i = 0; i < 19; i++) {
