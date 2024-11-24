@@ -13,7 +13,7 @@ public class Player {
         opponent.damage(by.cost());
     }
 
-    public void damage(int cost) {
+    private void damage(int cost) {
         this.life -= cost;
     }
 }
