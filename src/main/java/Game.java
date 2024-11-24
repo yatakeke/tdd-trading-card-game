@@ -3,7 +3,7 @@ public class Game {
     private Situation current;
 
     public Game() {
-        this.current = new Situation(Player.initPlayer1(), Player.initPlayer2());
+        this.current = new Situation(PlayerFactory.initPlayer1(), PlayerFactory.initPlayer2());
     }
 
     public static Game init() {
